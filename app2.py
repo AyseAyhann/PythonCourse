@@ -1,52 +1,47 @@
-# and or not(a==b) operatörleri kullanılır
+numbers=[1,3,5,7,9,12,19,21]
+#1-2-3
+result=0
+tri=[]
+odd=[]
+for number in numbers:
+    result+=number
+    if(number%3==0):
+        tri.append(number)
+    if(number%2==1):
+        number=(number**2)
+        odd.append(number)
 
-# #1
-# x=input()
-# y=input()
-# print("Max: ",max(x,y))
-# #or
-# if((x>y)and(y!=x)):
-#     print("y max")
-# else:
-#     print("x max")
+print(f"Total is: {result}")
+print("Triable numbers: ",tri)
+print("Odd numbers' square: ",odd)
 
+#4
+cities=['kocaeli','istanbul','ankara','izmir','rize']
+for city in cities:
+    if(len(city)<=5):
+        print(city)
 
-# #2
-# mid1=int(input("Enter midterm 1: "))
-# mid2=int(input("Enter midterm 2: "))
-# final=int(input("Enter final note: "))
-# note=(mid1+mid2+final)/3
+#5
+products=[
+     {'name':'samsung S6','price':'3000'},
+     {'name':'samsung S7','price':'4000'},
+     {'name':'samsung S8','price':'5000'},
+     {'name':'samsung S9','price':'6000'},
+    {'name':'samsung S10','price':'7000'}
+]
 
-# if(note>=50):
-#     print("Passed")
-# else:
-#     print("Failed")
+# result=0
+# for product in products:
+#     result+=product('price')
+#     if(product('price')<=5000):
+#       print(product)
 
-#bool ile de yapılabilir
+# print("Total price is: {result}")
 
-# #3
-# x=int(input("Enter a number: "))
-# if(x%2==0):
-#     print(f"{x} is even")
-# else:
-#     print(f'{x} is odd')
-
-
-# #4
-# x=int(input("Enter a number: "))
-# if(x>0):
-#     print("Positive")
-# else:
-#     print("Negative")
-
-email=input("Enter email: ")
-#ayse.ayhan6777@gmail.com
-password=input("Enter password: ")
-#2007
-
-#strip ile stringleri boşluksuz al
-
-if(email=="ayse.ayhan6777@gmail.com" and password=="2007"):
-    print("Correct")
-else:
-    print("Error")
+total=0
+for product in products:
+    price=int(product['price'])
+    total+=price
+    if(price<=5000):
+        print(product['name'])
+print(f"Total price is: {total}")
