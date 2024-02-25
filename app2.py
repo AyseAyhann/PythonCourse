@@ -1,47 +1,48 @@
-numbers=[1,3,5,7,9,12,19,21]
-#1-2-3
-result=0
-tri=[]
-odd=[]
-for number in numbers:
-    result+=number
-    if(number%3==0):
-        tri.append(number)
-    if(number%2==1):
-        number=(number**2)
-        odd.append(number)
+# Bank App
+#ek hesap kullanımını da talebe bağlı yapabilirsin
+# if balance < money: 
+AyseAccount={
+    'name':"Ayse Ayhan",
+    'accountNum':"134200",
+    'balance':1000000000,
+    'additional':5000000
+}
 
-print(f"Total is: {result}")
-print("Triable numbers: ",tri)
-print("Odd numbers' square: ",odd)
+UzayAccount={
+    'name':"Uzay X",
+    'accountNum':"001342",
+    'balance':3000,
+    'additional':2000
+}
 
-#4
-cities=['kocaeli','istanbul','ankara','izmir','rize']
-for city in cities:
-    if(len(city)<=5):
-        print(city)
+ElijahAccount={
+    'name':"Eli X",
+    'accountNum':"981342",
+    'balance':1000,
+    'additional':500
+}
 
-#5
-products=[
-     {'name':'samsung S6','price':'3000'},
-     {'name':'samsung S7','price':'4000'},
-     {'name':'samsung S8','price':'5000'},
-     {'name':'samsung S9','price':'6000'},
-    {'name':'samsung S10','price':'7000'}
-]
 
-# result=0
-# for product in products:
-#     result+=product('price')
-#     if(product('price')<=5000):
-#       print(product)
+def withdrawMoney(account):
+    money=int(input(f"How much you want {account['name']}?: "))
+    if(money<account['balance'] or money==account['balance']):
+        account['balance']-=money
+        print(f"Your balance is: {account['balance']}.")
+    else:
+        #ek hesap kullanılsın mı sorusuna bağlı yapabilirsin
+        if(account['balance']+account['additional']>=money):
+            money-=account['balance']
+            account['balance']=0
+            account['additional']-=money
+            if(account['additional']==0):
+                print("Your balance is 0.")
+            else:
+                print(f"Your additional balance is: {account['additional']}.")
+        else:
+            print(f"Insufficient funds {account['accountNum']}, your balance is {account['balance']+account['additional']}!")
 
-# print("Total price is: {result}")
 
-total=0
-for product in products:
-    price=int(product['price'])
-    total+=price
-    if(price<=5000):
-        print(product['name'])
-print(f"Total price is: {total}")
+#withdrawMoney(AyseAccount)
+#ek hesap-tarih tutulabilir, faiz kullanılabilir
+withdrawMoney(ElijahAccount)
+    

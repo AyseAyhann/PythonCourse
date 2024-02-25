@@ -1,74 +1,51 @@
+#1
+word=input("Word: ")
+times=int(input("How many times: "))
 
-# #1
-# age=int(input("Age: "))
-# education=input("Education: ")
+def printWord(str,count):
+    i=0
+    while i<count:
+        print(str)
+        i+=1
 
-# if(age>=18 and ((education=="college") or (education=="university"))):
-#     print("You can have a driver lisence.")
-# else:
-#     print("You can not have a driver lisence.")
+    #print(str*count) da olur
+
+printWord(word,times)
+
 
 # #2
-# mid1=int(input("Enter the first exam note: "))
-# mid2=int(input("Enter the second exam note: "))
-# note=(mid1+mid2)/2
 
-# if(note>0 and note<=24):
-#     print("0")
-# elif(note<=44):
-#     print("1")
-# elif(note<=54):
-#     print("2")
-# elif(note<=69):
-#     print("3")
-# elif(note<84):
-#     print("4")
-# else:
-#     print("5")
+def toList(*params):
+    list=[]
+    for param in params:
+        list.append(param)
+    return list 
 
-#else-incorrect info
-
-# #3
-# from datetime import datetime
-
-# user_date_str=input("Enter the date (YYYY-MM-DD): ")
-# # strptime stringi tarihe çevirir
-# user_date=datetime.strptime(user_date_str, "%Y-%m-%d")
-
-# current_date=datetime.now().date()
-# # hata: date_difference=current_date-user_date.date()
-# #güne çevrilmeli
-# date_difference=(current_date-user_date.date()).days
-
-# if(date_difference>=365 and date_difference<365*2):
-#     print("1. year")
-# elif(date_difference>=365*2 and date_difference<365*3):
-#     print("2.year")
-# elif(date_difference>=365*3 and date_difference<=365*4):
-#     print("3.year")
+result=(toList(5,"aysh","1234",3.7,))
+print(result)
 
 
-import datetime
+#3
+def findPrimes(a,b):
+    for x in range(a,b+1):
+      if x>2:
+            for i in range(2,x):
+                if(x%i==0):
+                    break
+            else:
+                print(x)
+ 
+print(findPrimes(2,20))    
+        
 
-user_date_str = input("Enter the date (YYYY/M/D): ")
-user_date = user_date_str.split('/')
-print(user_date)
+#4
+def findDivisor(num):
+    divisorList=[]
+    i=0
+    while i<num:
+        i+=1
+        if(num%i==0):
+            divisorList.append(i)
+    return divisorList
 
-# You need to convert the date components to integers
-year = int(user_date[0])
-month = int(user_date[1])
-day = int(user_date[2])
-
-begin = datetime.datetime(year, month, day)
-current_date = datetime.datetime.now()
-date_difference = current_date - begin
-
-# You need to access the days attribute to get the difference in days
-days = date_difference.days
-
-if days >= 365 and days < 365 * 2:
-    print("1. year")
-elif days >= 365 * 2 and days < 365 * 3:
-    print("2. year")
-elif days >= 365 * 3 and days <= 365 * 4:
-    print("3. year")
+print(findDivisor(216))
